@@ -41,6 +41,8 @@ $routes->get('/agents_grid', 'Web::agents_grid');
 $routes->get('/agents_single', 'Web::agents_single');
 $routes->get('/contact', 'Web::contact');
 $routes->get('/login', 'Web::login');
+$routes->get('/register', 'Web::register');
+
 
 
 

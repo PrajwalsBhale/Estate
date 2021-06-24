@@ -23,8 +23,12 @@
   <link href="<?= base_url('public/assets/vendor/swiper/swiper-bundle.min.css') ?>" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="<?= base_url('public/assets/css/style.css') ?>" rel="stylesheet">
+  <link href="<?= base_url('public/assets/css/style1.css') ?>" rel="stylesheet">
+  <!-- <link href="<?= base_url('public/assets/css/style2.css') ?>" rel="stylesheet"> -->
 
+  <style>
+     
+  </style>
 
 </head>
 
@@ -166,11 +170,11 @@
             <a class="nav-link " href="<?= base_url('/contact') ?>">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-b-n" href="#" type="button">Login</a>
+            <a class="btn btn-b-n" href="<?= base_url('/login') ?>" type="button">Login</a>
 
           </li>
           <li class="nav-item">
-            <a class="btn btn-b-n" href="#" type="button">Register</a>
+            <a class="btn btn-b-n" href="<?= base_url('/register') ?>" type="button">Register</a>
 
           </li>
           <li class="nav-item">
@@ -199,6 +203,8 @@
   <?= $this->renderSection('agents_single') ?>
   <?= $this->renderSection('contact') ?>
   <?= $this->renderSection('login') ?>
+  <?= $this->renderSection('register') ?>
+
 
 
 
@@ -374,5 +380,39 @@
   <script src="<?= base_url('public/assets/vendor/php-email-form/validate.js') ?>"></script>
   <script src="<?= base_url('public/assets/vendor/swiper/swiper-bundle.min.js') ?>"></script>
 
-  <!-- Template Main JS File -->
-  <script src="<?= base_url('public/assets/js/main.js') ?>"></script>
+  <!-- Template Base JS File -->
+  <script src="<?= base_url('public/assets/js/base.js') ?>"></script>
+
+
+  <script>
+         const wrapper = document.querySelector(".wrapper");
+         const fileName = document.querySelector(".file-name");
+         const defaultBtn = document.querySelector("#default-btn");
+         const customBtn = document.querySelector("#custom-btn");
+         const cancelBtn = document.querySelector("#cancel-btn i");
+         const img = document.querySelector("img");
+         let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
+         function defaultBtnActive(){
+           defaultBtn.click();
+         }
+         defaultBtn.addEventListener("change", function(){
+           const file = this.files[0];
+           if(file){
+             const reader = new FileReader();
+             reader.onload = function(){
+               const result = reader.result;
+               img.src = result;
+               wrapper.classList.add("active");
+             }
+             cancelBtn.addEventListener("click", function(){
+               img.src = "";
+               wrapper.classList.remove("active");
+             })
+             reader.readAsDataURL(file);
+           }
+           if(this.value){
+             let valueStore = this.value.match(regExp);
+             fileName.textContent = valueStore;
+           }
+         });
+      </script>
