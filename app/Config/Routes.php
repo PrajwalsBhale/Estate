@@ -42,10 +42,6 @@ $routes->get('/agents_single', 'Web::agents_single');
 $routes->get('/contact', 'Web::contact');
 $routes->get('/login', 'Web::login');
 $routes->get('/register', 'Web::register');
-
-
-
-
 $routes->get('/PostProperty', 'Web::post_property');
 
 

@@ -45,6 +45,9 @@ class Web extends BaseController
 	{
 		return view('register');
 	}
-
+  public function post_property()
+	{
+		return view('post_property');
+	}
 	
 }
