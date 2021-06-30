@@ -2,8 +2,16 @@
 
 namespace App\Controllers;
 
+use App\Models\PropertyModel;
+
 class Web extends BaseController
 {
+	
+		public function __construct()
+		{
+	
+			helper(['form', 'html', 'array', 'test', 'text', 'number']);
+		}
 	public function index()
 	{
 		return view('home');
@@ -49,5 +57,28 @@ class Web extends BaseController
 	{
 		return view('post_property');
 	}
+
+
+
+
+
+
+
+	
+
+
+	// public function show_property($id)
+	// {
+
+	// 	$model = new PropertyModel();
+
+	// 	$data = [
+	// 		'get_property' =>  $model->get_property($id)
+	// 	];
+
+	// 	echo view('single', $data);
+	// }
+
+
 	
 }

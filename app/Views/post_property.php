@@ -21,7 +21,7 @@
                 <a href="index.html">Home</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
-              Post Property
+                Post Property
               </li>
             </ol>
           </nav>
@@ -186,10 +186,11 @@
                 <div class="feature-image-content">
                   <div class="image-uploader"><input type="file" id="images-1624612104881" name="images[]" accept=".jpg,.jpeg,.png,.gif,.svg" multiple="multiple">
                     <div class="uploaded"></div>
-                    <div class="upload-text"><i class="fa fa-cloud-upload"></i><span>Drag &amp; Drop files here or click to browse</span></div>
+                    <div class="upload-text"><i class="fas fa-cloud-upload-alt"></i><span>Drag &amp; Drop files here or click to browse</span></div>
                   </div>
                 </div>
               </div>
+
               <div class="pf-property-details">
                 <h4>Property details</h4>
                 <div class="property-details-inputs">

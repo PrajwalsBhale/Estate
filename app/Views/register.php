@@ -85,7 +85,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-sm-3 ">
-        <div class="contain">
+        <!-- <div class="contain">
           <div class="wrapper">
             <div class="image">
               <img src="" alt="">
@@ -107,13 +107,19 @@
           </div>
           <button onclick="defaultBtnActive()" id="custom-btn">Choose a Profile</button>
           <input id="default-btn" type="file" hidden>
+        </div> -->
+        <div class="drag-area">
+          <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+          <header>Drag & Drop to Upload File</header>
+          <span>OR</span>
+          <button>Browse File</button>
+          <input type="file" hidden>
         </div>
-
       </div>
 
 
       <div class="col-sm-3 ">
-          <form action="">
+        <form action="">
           <div class="form-outline mb-4">
             <input type="text" id="form1Example1" class="form-control" />
             <label class="form-label" for="form1Example1">First Name</label>
@@ -130,20 +136,20 @@
             <input type="text" id="form1Example1" class="form-control" />
             <label class="form-label" for="form1Example1">Contact</label>
           </div>
+      </div>
+      <div class="col-sm-3 ">
+        <div class="form-outline mb-4">
+          <input type="password" id="form1Example2" class="form-control" />
+          <label class="form-label" for="form1Example2">Password</label>
         </div>
-        <div class="col-sm-3 ">
-          <div class="form-outline mb-4">
-            <input type="password" id="form1Example2" class="form-control" />
-            <label class="form-label" for="form1Example2">Password</label>
-          </div>
-          <div class="form-outline mb-4">
-            <input type="password" id="form1Example2" class="form-control" />
-            <label class="form-label" for="form1Example2">Confirm Password</label>
-          </div>
+        <div class="form-outline mb-4">
+          <input type="password" id="form1Example2" class="form-control" />
+          <label class="form-label" for="form1Example2">Confirm Password</label>
+        </div>
         <button type="submit" class="btn btn-b-n">Submit</button>
 
-        </div>
-          
+      </div>
+
 
       </form>
 

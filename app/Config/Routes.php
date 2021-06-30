@@ -44,6 +44,9 @@ $routes->get('/login', 'Web::login');
 $routes->get('/register', 'Web::register');
 $routes->get('/PostProperty', 'Web::post_property');
 
+// $routes->get('/ShowProperty/(:num)', 'Web::show_property/$1');
+
+
 
 /*
  * --------------------------------------------------------------------
