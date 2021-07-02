@@ -18,7 +18,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('Web');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -40,9 +40,13 @@ $routes->get('/property_single', 'Web::property_single');
 $routes->get('/agents_grid', 'Web::agents_grid');
 $routes->get('/agents_single', 'Web::agents_single');
 $routes->get('/contact', 'Web::contact');
-$routes->get('/login', 'Web::login');
-$routes->get('/register', 'Web::register');
-$routes->get('/PostProperty', 'Web::post_property');
+$routes->get('/login', 'Web::login', ['filter' => 'AlreadyLoggedIn']);
+$routes->get('/register', 'Web::register', ['filter' => 'AlreadyLoggedIn']);
+$routes->get('/logout', 'Web::logout', ['filter' => 'AuthCheck']);
+
+
+
+$routes->get('/PostProperty', 'Web::post_property', ['filter' => 'AuthCheck']);
 
 // $routes->get('/ShowProperty/(:num)', 'Web::show_property/$1');
 

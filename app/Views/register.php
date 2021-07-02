@@ -30,133 +30,96 @@
         </div>
       </div>
     </div>
-  </section><!-- End Intro Single-->
+  </section>
+  <!-- End Intro Single-->
 
 
-  <!-- <section class="container">
-    <div class="row justify-content-center">
-       <div class="col-xl-3 col-md-5">
-         <div class="rounded-5 p-5">
-          <h1 class="mb-5">Profile</h1>
-         </div>
-       </div>
-      <div class="col-xl-5 col-md-8">
-        <form class="rounded-5  p-5">
-          <h1 class="mb-5">Register</h1>
 
-          <div class="form-outline mb-4">
-            <input type="text" id="form1Example1" class="form-control" />
-            <label class="form-label" for="form1Example1">First Name</label>
-          </div>
-
-          <div class="form-outline mb-4">
-            <input type="text" id="form1Example1" class="form-control" />
-            <label class="form-label" for="form1Example1">Last name</label>
-          </div>
-
-          <div class="form-outline mb-4">
-            <input type="email" id="form1Example1" class="form-control" />
-            <label class="form-label" for="form1Example1">Email address</label>
-          </div>
-
-          <div class="form-outline mb-4">
-            <input type="password" id="form1Example2" class="form-control" />
-            <label class="form-label" for="form1Example2">Password</label>
-          </div>
-
-          <div class="form-outline mb-4">
-            <input type="password" id="form1Example2" class="form-control" />
-            <label class="form-label" for="form1Example2">Confirm Password</label>
-          </div>
-
-        
-
-          <button type="submit" class="btn btn-b-n">Submit</button>
-        </form>
-      </div>
-    </div>
-  </section> -->
-
-
-  <div class="container text-center">
-    <h1>Register</h1>
-  </div>
 
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-sm-3 ">
-        <!-- <div class="contain">
-          <div class="wrapper">
-            <div class="image">
-              <img src="" alt="">
-            </div>
-            <div class="content">
-              <div class="icon">
-                <i class="fas fa-cloud-upload-alt"></i>
-              </div>
-              <div class="text">
-                No file chosen, yet!
-              </div>
-            </div>
-            <div id="cancel-btn">
-              <i class="fas fa-times"></i>
-            </div>
-            <div class="file-name">
-              File name here
-            </div>
+    <div class="text-center my-1">
+      <h1>Register</h1>
+    </div>
+    <?php if (!empty(session()->getFlashdata('fail'))) :  ?>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Sorry! </strong><?= session()->getFlashdata('fail'); ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <?php endif ?>
+    <?php if (!empty(session()->getFlashdata('success'))) :  ?>
+      <div class="alert alert-success text-center alert-dismissible fade show" role="alert">
+        <strong>Success! </strong><?= session()->getFlashdata('success'); ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <?php endif ?>
+    <form action="<?= base_url('Web/save_user') ?>" method="POST">
+      <?= csrf_field(); ?>
+      <div class="row justify-content-center">
+
+        <div class="col-sm-3 ">
+          <div class="form-outline mb-4">
+            <label class="form-label" for="firstname">First Name</label>
+            <input type="text" name="firstname" id="firstname" class="form-control" value="<?= set_value('firstname') ?>" />
+            <span class="text-danger"><?= isset($validation) ? display_error($validation, 'firstname') : '' ?></span>
           </div>
-          <button onclick="defaultBtnActive()" id="custom-btn">Choose a Profile</button>
-          <input id="default-btn" type="file" hidden>
-        </div> -->
-        <div class="drag-area">
-          <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-          <header>Drag & Drop to Upload File</header>
-          <span>OR</span>
-          <button>Browse File</button>
-          <input type="file" hidden>
+          <div class="form-outline mb-4">
+            <label class="form-label" for="lastname">Last Name</label>
+            <input type="text" name="lastname" id="lastname" class="form-control" value="<?= set_value('lastname') ?>" />
+            <span class="text-danger"><?= isset($validation) ? display_error($validation, 'lastname') : '' ?></span>
+
+          </div>
+          <div class="form-outline mb-4">
+            <label class="form-label" for="email">Email address</label>
+            <input type="email" name="email" id="email" class="form-control" value="<?= set_value('email') ?>" />
+            <span class="text-danger"><?= isset($validation) ? display_error($validation, 'email') : '' ?></span>
+
+          </div>
+          <div class="form-outline mb-4">
+            <label class="form-label" for="contact">Contact</label>
+            <input type="text" name="contact" id="contact" class="form-control" value="<?= set_value('contact') ?>" />
+            <span class="text-danger"><?= isset($validation) ? display_error($validation, 'contact') : '' ?></span>
+
+          </div>
         </div>
+        <div class="col-sm-3 ">
+          <div class="form-outline mb-4">
+            <label class="form-label" for="username">User Name</label>
+            <input type="text" name="username" id="username" class="form-control" value="<?= set_value('username') ?>" />
+            <span class="text-danger"><?= isset($validation) ? display_error($validation, 'username') : '' ?></span>
+
+          </div>
+          <div class="form-outline mb-4">
+            <label class="form-label" for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" />
+            <span class="text-danger"><?= isset($validation) ? display_error($validation, 'password') : '' ?></span>
+
+          </div>
+          <div class="form-outline mb-4">
+            <label class="form-label" for="password_confirm">Confirm Password</label>
+            <input type="password" name="password_confirm" id="password_confirm" class="form-control" />
+            <span class="text-danger"><?= isset($validation) ? display_error($validation, 'password_confirm') : '' ?></span>
+
+          </div>
+
+
+          <button type="submit" class="btn btn-b-n">Submit</button>
+        </div>
+
       </div>
 
+    </form>
 
-      <div class="col-sm-3 ">
-        <form action="">
-          <div class="form-outline mb-4">
-            <input type="text" id="form1Example1" class="form-control" />
-            <label class="form-label" for="form1Example1">First Name</label>
-          </div>
-          <div class="form-outline mb-4">
-            <input type="text" id="form1Example1" class="form-control" />
-            <label class="form-label" for="form1Example1">Last Name</label>
-          </div>
-          <div class="form-outline mb-4">
-            <input type="email" id="form1Example1" class="form-control" />
-            <label class="form-label" for="form1Example1">Email address</label>
-          </div>
-          <div class="form-outline mb-4">
-            <input type="text" id="form1Example1" class="form-control" />
-            <label class="form-label" for="form1Example1">Contact</label>
-          </div>
+
+    <div class="row mb-4">
+
+
+      <div class="col text-center">
+
+        <a href="<?= base_url('/login') ?>" class="link-primary">Already have an account?Login</a>
       </div>
-      <div class="col-sm-3 ">
-        <div class="form-outline mb-4">
-          <input type="password" id="form1Example2" class="form-control" />
-          <label class="form-label" for="form1Example2">Password</label>
-        </div>
-        <div class="form-outline mb-4">
-          <input type="password" id="form1Example2" class="form-control" />
-          <label class="form-label" for="form1Example2">Confirm Password</label>
-        </div>
-        <button type="submit" class="btn btn-b-n">Submit</button>
-
-      </div>
-
-
-      </form>
-
     </div>
 
   </div>
-
 
 
 

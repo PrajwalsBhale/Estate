@@ -34,42 +34,49 @@
 
 
   <section class="container">
+    <div class="text-center my-1">
+      <h1>Login</h1>
+    </div>
     <div class="row justify-content-center">
       <div class="col-xl-5 col-md-8">
-        <form class="rounded-5  p-5">
-          <h1>Login</h1>
-          <!-- Email input -->
+      <?php if (!empty(session()->getFlashdata('fail'))) :  ?>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Sorry! </strong><?= session()->getFlashdata('fail'); ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <?php endif ?>
+    
+        <form action="<?= base_url('Web/check') ?>" method="POST" class="rounded-5  p-5">
+      <?= csrf_field(); ?>
+           
+          <!-- username input -->
           <div class="form-outline mb-4">
-            <input type="email" id="form1Example1" class="form-control" />
-            <label class="form-label" for="form1Example1">Email address</label>
+            <label class="form-label" for="username">Username</label>
+            <input type="text" name="username" id="username" class="form-control" value="<?= set_value('username') ?>"/>
+            <span class="text-danger"><?= isset($validation) ? display_error($validation, 'username') : '' ?></span>
+
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-4">
-            <input type="password" id="form1Example2" class="form-control" />
-            <label class="form-label" for="form1Example2">Password</label>
+            <label class="form-label" for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" />
+            <span class="text-danger"><?= isset($validation) ? display_error($validation, 'password') : '' ?></span>
+
           </div>
 
           <!-- 2 column grid layout for inline styling -->
           <div class="row mb-4">
-            <div class="col d-flex justify-content-center">
-              <!-- Checkbox -->
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-                <label class="form-check-label" for="form1Example3">
-                  Remember me
-                </label>
-              </div>
-            </div>
+
 
             <div class="col text-center">
               <!-- Simple link -->
-              <a href="#!" class="link-primary">Forgot password?</a>
+              <a href="<?= base_url('/register') ?>" class="link-primary">Haven't registered?Click here</a>
             </div>
           </div>
 
           <!-- Submit button -->
-          <button type="submit" class="btn btn-b-n">Sign in</button>
+          <button type="submit" class="btn btn-b-n">Login</button>
         </form>
       </div>
     </div>
