@@ -52,7 +52,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     <?php endif ?>
-    <form action="<?= base_url('Web/save_user') ?>" method="POST">
+    <form action="<?= base_url('/Web/register') ?>" method="POST">
       <?= csrf_field(); ?>
       <div class="row justify-content-center">
 

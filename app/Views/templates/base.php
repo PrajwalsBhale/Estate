@@ -387,7 +387,7 @@
 
   <!-- Vendor JS Files -->
   <script src="<?= base_url('public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
-  <script src="<?= base_url('public/assets/vendor/php-email-form/validate.js') ?>"></script>
+
   <script src="<?= base_url('public/assets/vendor/swiper/swiper-bundle.min.js') ?>"></script>
 
   <!-- Template Base JS File -->

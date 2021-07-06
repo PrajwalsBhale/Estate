@@ -46,7 +46,7 @@
       </div>
     <?php endif ?>
     
-        <form action="<?= base_url('Web/check') ?>" method="POST" class="rounded-5  p-5">
+        <form action="<?= base_url('Web/login') ?>" method="POST" class="rounded-5  p-5">
       <?= csrf_field(); ?>
            
           <!-- username input -->

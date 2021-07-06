@@ -36,173 +36,97 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="property-submit-form">
-            <form action="#">
+            <?php if (!empty(session()->getFlashdata('fail'))) :  ?>
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Sorry! </strong><?= session()->getFlashdata('fail'); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            <?php endif ?>
+            <?php if (!empty(session()->getFlashdata('success'))) :  ?>
+              <div class="alert alert-success text-center alert-dismissible fade show" role="alert">
+                <strong>Success! </strong><?= session()->getFlashdata('success'); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            <?php endif ?>
+            <form action="<?= base_url('/Web/post_property') ?>" enctype="multipart/form-data" method="POST">
               <div class="pf-title">
                 <h4>Title</h4>
-                <input type="text" placeholder="Your Title*">
+                <div class="text-danger"><?= isset($validation) ? display_error($validation, 'title') : '' ?></div>
+                <input type="text" name="title" placeholder="Your Title* (eg. name of your house)" value="<?= set_value('title') ?>" />
+              </div>
+              <div class="pf-title">
+                <h4>Description</h4>
+                <div class="text-danger"><?= isset($validation) ? display_error($validation, 'description') : '' ?></div>
+                <textarea type="text" name="description" style="height: 100px; width: 300px;" placeholder="Enter Description"><?= set_value('description') ?></textarea>
               </div>
 
               <div class="pf-location">
                 <h4>Property Location</h4>
                 <div class="location-inputs">
-                  <input type="text" placeholder="Address">
-                  <input type="text" placeholder="Neighborhood">
-                  <input type="text" placeholder="City">
-                  <input type="text" placeholder="State">
-                  <input type="text" placeholder="Country">
-                  <input type="text" placeholder="Posta Code / Zip">
+                  <div>
+                    <div class="text-danger"><?= isset($validation) ? display_error($validation, 'address') : '' ?></div>
+                    <div class="text-danger"><?= isset($validation) ? display_error($validation, 'city') : '' ?></div>
+                    <div class="text-danger"><?= isset($validation) ? display_error($validation, 'state') : '' ?></div>
+                    <div class="text-danger"><?= isset($validation) ? display_error($validation, 'country') : '' ?></div>
+                    <div class="text-danger"><?= isset($validation) ? display_error($validation, 'zipcode') : '' ?></div>
+                  </div>
+                  <input type="text" name="address" placeholder="Address" value="<?= set_value('address') ?>" />
+                  <input type="text" name="city" placeholder="City" value="<?= set_value('city') ?>" />
+                  <input type="text" name="state" placeholder="State" value="<?= set_value('state') ?>" />
+                  <input type="text" name="country" placeholder="Country" value="<?= set_value('country') ?>" />
+                  <input type="text" name="zipcode" placeholder="Postal Code / Zip" value="<?= set_value('zipcode') ?>" />
                 </div>
               </div>
 
               <div class="pf-type">
                 <h4>Property type</h4>
-                <div class="type-item">
-                  <label for="pt-apart">Apartment
-                    <input type="checkbox" id="pt-apart">
-                    <span class="checkbox"></span>
-                  </label>
-                  <label for="pt-house">House
-                    <input type="checkbox" id="pt-house">
-                    <span class="checkbox"></span>
-                  </label>
-                  <label for="pt-off">Office
-                    <input type="checkbox" id="pt-off">
-                    <span class="checkbox"></span>
-                  </label>
-                  <label for="pt-villa">Villa
-                    <input type="checkbox" id="pt-villa">
-                    <span class="checkbox"></span>
-                  </label>
-                  <label for="pt-store">Store
-                    <input type="checkbox" id="pt-store">
-                    <span class="checkbox"></span>
-                  </label>
-                  <label for="pt-rest">Resturent
-                    <input type="checkbox" id="pt-rest">
-                    <span class="checkbox"></span>
-                  </label>
+                <div class="fp-inputs">
+                  <div class="text-danger"><?= isset($validation) ? display_error($validation, 'property_type') : '' ?></div>
+                  <input type="text" name="property_type" placeholder="Apartment/House/Office/Villa/Store/Resturent" value="<?= set_value('property_type') ?>" />
                 </div>
               </div>
               <div class="pf-status">
                 <h4>Property status</h4>
-                <div class="status-item">
-                  <label for="ps-rent">For rent
-                    <input type="checkbox" id="ps-rent">
-                    <span class="checkbox"></span>
-                  </label>
-                  <label for="ps-sale">For sale
-                    <input type="checkbox" id="ps-sale">
-                    <span class="checkbox"></span>
-                  </label>
+                <div class="fp-inputs">
+                  <div class="text-danger"><?= isset($validation) ? display_error($validation, 'property_status') : '' ?></div>
+                  <input type="text" name="property_status" placeholder="Rent/Sale" value="<?= set_value('property_status') ?>" />
                 </div>
               </div>
               <div class="pf-feature-price">
                 <h4>Featured Price</h4>
                 <div class="fp-inputs">
-                  <input type="text" placeholder="Price">
-                  <input type="text" placeholder="Second Price ( Optional )">
-                  <input type="text" placeholder="After Price Label (ex: monthly)">
+                  <div class="text-danger"><?= isset($validation) ? display_error($validation, 'price') : '' ?></div>
+                  <input type="text" name="price" placeholder="Price in Rupees" value="<?= set_value('price') ?>" />
                 </div>
               </div>
               <div class="pf-feature">
                 <h4>Property Features</h4>
-                <div class="features-list">
-                  <div class="feature-item">
-                    <label for="air">Air conditioning
-                      <input type="checkbox" id="air">
-                      <span class="checkbox"></span>
-                    </label>
-                    <label for="lundry">Laundry
-                      <input type="checkbox" id="lundry">
-                      <span class="checkbox"></span>
-                    </label>
-                    <label for="refrigerator">Refrigerator
-                      <input type="checkbox" id="refrigerator">
-                      <span class="checkbox"></span>
-                    </label>
-                    <label for="washer">Washer
-                      <input type="checkbox" id="washer">
-                      <span class="checkbox"></span>
-                    </label>
-                  </div>
-                  <div class="feature-item">
-                    <label for="barbeque">Barbeque
-                      <input type="checkbox" id="barbeque">
-                      <span class="checkbox"></span>
-                    </label>
-                    <label for="lawn">Lawn
-                      <input type="checkbox" id="lawn">
-                      <span class="checkbox"></span>
-                    </label>
-                    <label for="sauna">Sauna
-                      <input type="checkbox" id="sauna">
-                      <span class="checkbox"></span>
-                    </label>
-                    <label for="wifi">Wifi
-                      <input type="checkbox" id="wifi">
-                      <span class="checkbox"></span>
-                    </label>
-                  </div>
-                  <div class="feature-item">
-                    <label for="dryer">Dryer
-                      <input type="checkbox" id="dryer">
-                      <span class="checkbox"></span>
-                    </label>
-                    <label for="microwave">Microwave
-                      <input type="checkbox" id="microwave">
-                      <span class="checkbox"></span>
-                    </label>
-                    <label for="pool">Swimming Pool
-                      <input type="checkbox" id="pool">
-                      <span class="checkbox"></span>
-                    </label>
-                    <label for="window">Window Coverings
-                      <input type="checkbox" id="window">
-                      <span class="checkbox"></span>
-                    </label>
-                  </div>
-                  <div class="feature-item">
-                    <label for="gym">Gym
-                      <input type="checkbox" id="gym">
-                      <span class="checkbox"></span>
-                    </label>
-                    <label for="shower">OutdoorShower
-                      <input type="checkbox" id="shower">
-                      <span class="checkbox"></span>
-                    </label>
-                    <label for="tv">Tv Cable
-                      <input type="checkbox" id="tv">
-                      <span class="checkbox"></span>
-                    </label>
-                    <label for="villa">Villa
-                      <input type="checkbox" id="villa">
-                      <span class="checkbox"></span>
-                    </label>
-                  </div>
+                <div class="fp-inputs">
+                  <div class="text-danger"><?= isset($validation) ? display_error($validation, 'features') : '' ?></div>
+                  <input type="text" name="features" placeholder="Any features you want to mention" value="<?= set_value('features') ?>" />
                 </div>
               </div>
               <div class="pf-feature-image">
                 <h4>Featured Image</h4>
+                <div class="text-danger"><?= isset($validation) ? display_error($validation, 'image') : '' ?></div>
                 <div class="feature-image-content">
-                  <div class="image-uploader"><input type="file" id="images-1624612104881" name="images[]" accept=".jpg,.jpeg,.png,.gif,.svg" multiple="multiple">
-                    <div class="uploaded"></div>
-                    <div class="upload-text"><i class="fas fa-cloud-upload-alt"></i><span>Drag &amp; Drop files here or click to browse</span></div>
-                  </div>
+                  <input type="file" name="image" accept=".jpg,.jpeg,.png">
                 </div>
               </div>
 
               <div class="pf-property-details">
                 <h4>Property details</h4>
                 <div class="property-details-inputs">
-                  <input type="text" placeholder="Property ID">
-                  <input type="text" placeholder="Area Size ( Only digits )">
-                  <input type="text" placeholder="Size Prefix">
-                  <input type="text" placeholder="Bedrooms">
-                  <input type="text" placeholder="Bathrooms">
-                  <input type="text" placeholder="Garages">
-                  <input type="text" placeholder="Garages Size">
-                  <input type="text" placeholder="Year Built">
-                  <input type="text" placeholder="Virtual Tour Video URL">
+                  <div>
+                    <div class="text-danger"><?= isset($validation) ? display_error($validation, 'areasize') : '' ?></div>
+                    <div class="text-danger"><?= isset($validation) ? display_error($validation, 'bed') : '' ?></div>
+                    <div class="text-danger"><?= isset($validation) ? display_error($validation, 'bath') : '' ?></div>
+                    <div class="text-danger"><?= isset($validation) ? display_error($validation, 'garage') : '' ?></div>
+                  </div>
+                  <input type="text" name="areasize" placeholder="Area Size" value="<?= set_value('areasize') ?>" />
+                  <input type="text" name="bed" placeholder="Bedrooms" value="<?= set_value('bed') ?>" />
+                  <input type="text" name="bath" placeholder="Bathrooms" value="<?= set_value('bath') ?>" />
+                  <input type="text" name="garage" placeholder="Garages" value="<?= set_value('garage') ?>" />
                 </div>
                 <button type="submit" class="btn btn-b-n">Submit Property</button>
               </div>
