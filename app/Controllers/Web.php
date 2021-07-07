@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Libraries\Hash;
+use App\Models\PropertyModel;
 
 class Web extends BaseController
 {
@@ -23,7 +24,15 @@ class Web extends BaseController
 
 	public function property()
 	{
-		return view('property_grid');
+		$db = db_connect();
+    $model = new PropertyModel($db);
+		$data = [
+	
+			'users' => $model->select('*')->join('users','property.user_id = users.user_id')->paginate(6),
+			'pager' => $model->pager,
+	
+		];
+		return view('property_grid',$data);
 	}
 	public function blog()
 	{
