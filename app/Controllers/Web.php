@@ -55,6 +55,17 @@ class Web extends BaseController
 		return view('contact');
 	}
 
+	public function profile()
+	{
+		$ses = session();
+		// \Config\Services::session();
+
+		$data['profile_data'] = $ses;
+
+
+		// \Config\Services::session();
+		return view('profile', $data);
+	}
 	public function post_property()
 	{
 		if ($this->request->getMethod() == 'post') {

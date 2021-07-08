@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>EstateAgency</title>
+  <title>Swarajya Buildcon</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -137,8 +137,13 @@
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="<?= base_url('/') ?>">Estate<span class="color-b">Agency</span></a>
-
+      <!-- <a class="navbar-brand text-brand" href="<?= base_url('/') ?>">Swarajya<span class="color-b">Buildcon</span></a> -->
+      
+        <a class="navbar-brand text-brand" href="<?= base_url('/') ?>">
+          <img src="<?= base_url('public/assets/img/logo.jpg') ?>" alt="" width="70" height="55">
+          Swarajya<span class="color-b">Buildcon</span>
+        </a>
+      
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
 
@@ -170,37 +175,45 @@
           <li class="nav-item">
             <a class="nav-link " href="<?= base_url('/contact') ?>">Contact</a>
           </li>
-          <?php if (session()->get('isLoggedIn')): ?>
-          <li class="nav-item">
-            <a class="btn btn-b-n" href="<?= base_url('/logout') ?>" type="button">Logout</a>
 
-          </li>
-          <?php else :?>
-          <li class="nav-item">
-            <a class="btn btn-b-n" href="<?= base_url('/login') ?>" type="button">Login</a>
+          <?php if (session()->get('isLoggedIn')) : ?>
+            <li class="nav-item">
+              <a class="nav-link" href="<?= base_url('/profile') ?>" type="button">Profile</a>
 
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-b-n" href="<?= base_url('/register') ?>" type="button">Register</a>
+            </li>
+          <?php endif; ?>
 
-          </li>
-          <?php endif ;?>
+          <?php if (session()->get('isLoggedIn')) : ?>
+            <li class="nav-item">
+              <a class="btn btn-b-n" href="<?= base_url('/logout') ?>" type="button">Logout</a>
+
+            </li>
+          <?php else : ?>
+            <li class="nav-item">
+              <a class="btn btn-b-n" href="<?= base_url('/login') ?>" type="button">Login</a>
+
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-b-n" href="<?= base_url('/register') ?>" type="button">Register</a>
+
+            </li>
+          <?php endif; ?>
           <li class="nav-item">
             <a class="btn btn-b-n" href="<?= base_url('/PostProperty') ?>" type="button">Post Property</a>
 
           </li>
         </ul>
       </div>
-
+      <!-- 
       <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
         <i class="bi bi-search"></i>
-      </button>
+      </button> -->
 
     </div>
   </nav><!-- End Header/Navbar -->
 
-  
- 
+
+
 
   <?= $this->renderSection('home') ?>
   <?= $this->renderSection('about') ?>
@@ -210,6 +223,7 @@
   <?= $this->renderSection('agents_grid') ?>
   <?= $this->renderSection('agents_single') ?>
   <?= $this->renderSection('contact') ?>
+  <?= $this->renderSection('profile') ?>
   <?= $this->renderSection('login') ?>
   <?= $this->renderSection('register') ?>
   <?= $this->renderSection('post_property') ?>
@@ -232,21 +246,20 @@
         <div class="col-sm-12 col-md-4">
           <div class="widget-a">
             <div class="w-header-a">
-              <h3 class="w-title-a text-brand">EstateAgency</h3>
+              <h3 class="w-title-a text-brand">Swarajya Buildcon</h3>
             </div>
             <div class="w-body-a">
               <p class="w-text-a color-text-a">
-                Enim minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip exea commodo consequat duis
-                sed aute irure.
+                The Innovative Minds together..
               </p>
             </div>
             <div class="w-footer-a">
               <ul class="list-unstyled">
                 <li class="color-a">
-                  <span class="color-text-a">Phone .</span> contact@example.com
+                  <span class="color-text-a">Phone :</span> +91 9809717272
                 </li>
                 <li class="color-a">
-                  <span class="color-text-a">Email .</span> +54 356 945234
+                  <span class="color-text-a">Email :</span><a href="mailto:swarajyabuildcon71@gmail.com"> swarajyabuildcon71@gmail.com</a>
                 </li>
               </ul>
             </div>
@@ -289,7 +302,7 @@
               <h3 class="w-title-a text-brand">International sites</h3>
             </div>
             <div class="w-body-a">
-              <ul class="list-unstyled">
+              <!-- <ul class="list-unstyled">
                 <li class="item-list-a">
                   <i class="bi bi-chevron-right"></i> <a href="#">Venezuela</a>
                 </li>
@@ -308,7 +321,7 @@
                 <li class="item-list-a">
                   <i class="bi bi-chevron-right"></i> <a href="#">Philippines</a>
                 </li>
-              </ul>
+              </ul> -->
             </div>
           </div>
         </div>
@@ -365,7 +378,7 @@
           <div class="copyright-footer">
             <p class="copyright color-text-a">
               &copy; Copyright
-              <span class="color-a">EstateAgency</span> All Rights Reserved.
+              <span class="color-a">Swarajya Buildcon</span> All Rights Reserved.
             </p>
           </div>
           <div class="credits">
@@ -375,7 +388,7 @@
             Licensing information: https://bootstrapmade.com/license/
             Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=EstateAgency
           -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+
           </div>
         </div>
       </div>

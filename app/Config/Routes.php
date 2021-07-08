@@ -45,7 +45,7 @@ $routes->get('/register', 'Web::register', ['filter' => 'AlreadyLoggedIn']);
 $routes->get('/logout', 'Web::logout', ['filter' => 'AuthCheck']);
 
 
-
+$routes->get('/profile', 'Web::profile', ['filter' => 'AuthCheck']);
 $routes->get('/PostProperty', 'Web::post_property', ['filter' => 'AuthCheck']);
 
 // $routes->get('/ShowProperty/(:num)', 'Web::show_property/$1');

@@ -11,7 +11,9 @@
       <div class="row">
         <div class="col-md-12 col-lg-8">
           <div class="title-single-box">
-            <h1 class="title-single">We Do Great Design For Creative Folks</h1>
+            <h1 class="title-single">Swarajya Buildcon</h1>
+            <br> Since 2014
+            <p>Consultants, Engineers & Contractors</p>
           </div>
         </div>
         <div class="col-md-12 col-lg-4">
@@ -38,46 +40,121 @@
           <div class="about-img-box">
             <img src="<?= base_url('public/assets/img/slide-about-1.jpg') ?>" alt="" class="img-fluid">
           </div>
-          <div class="sinse-box">
-            <h3 class="sinse-title">EstateAgency
-              <span></span>
-              <br> Sinse 2017
-            </h3>
-            <p>Art & Creative</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">Introduction</h1>
           </div>
         </div>
-        <div class="col-md-12 section-t8 position-relative">
-          <div class="row">
-            <div class="col-md-6 col-lg-5">
-              <img src="<?= base_url('public/assets/img/about-2.jpg') ?>" alt="" class="img-fluid">
-            </div>
-            <div class="col-lg-2  d-none d-lg-block position-relative">
-              <div class="title-vertical d-flex justify-content-start">
-                <span>EstateAgency Exclusive Property</span>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-5 section-md-t3">
-              <div class="title-box-d">
-                <h3 class="title-d">Sed
-                  <span class="color-d">porttitor</span> lectus
-                  <br> nibh.
-                </h3>
-              </div>
-              <p class="color-text-a">
-                Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget
-                consectetur sed, convallis
-                at tellus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum
-                ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit
-                neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-              </p>
-              <p class="color-text-a">
-                Sed porttitor lectus nibh. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.
-                Mauris blandit aliquet
-                elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget consectetur sed,
-                convallis at tellus.
-              </p>
-            </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+            Swarajya Buildcon Consultants, Engineers & Contractors is a Leading Architectural Design and Civil Engineering consulting firm In Maharashtra known nationally for its diversified and quality work. Swarajya Buildcon Consultants, Engineers & Contractors Founded at Georai Maharashtra India, and have been practicing as a Architectural Design and Civil Engineering consulting Firm and Project Management Consultant since its inception. Er .Vinod Mote (BE Civil) from PES College Of Engineering Aurangabad founded the company in 2014.
+          </p>
+          <p>
+            Swarajya Buildcon Consultants, Engineers & Contractors view professional engineering as a highly skilled and personalized service. As the frontiers of Architectural & Civil engineering advance, our rapidly accumulating resource of knowledge, experience and expertise equip us not only for refined conventional design but also, to investigate, develop and use designs beyond the boundaries of convention. This is our business and passion. The Company had established faith in covering all the complexities and intricacies of structural aspects, and resolving the structural system into an optimized and cost efficient model. Our strength lies in using the state-of-art tools and keeping abreast of the latest technological advances for optimizing both for economy and safety aspects. Our core area of expertise lies in new designs as well as retrofitting and rehabilitation of Reinforced concrete and Steel structures including residential, commercial, malls, retails, multiplexes, institutional industrial, medical, hospitality, recreational, high-rises, etc.
+          </p>
+          <p>
+            The Organization had developed a strong culture that emphasized superior technical ability, in field of Architectural Design and Civil Engineering. Swarajya Buildcon Consultants, Engineers & Contractors is distinct in designing stable and economical structures without sacrificing architectural intend, aesthetics and functionality. Swarajya Buildcon Consultants, Engineers & Contractors assures the commitments made for time, economy and quality. Proof of Quality Assurance is evident in more than five hundred successfully completed structures.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">Our Vision</h1>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+            We are a world class consulting firm offering innovative technical solutions with quality services to enrich lives towards sustainable development.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">Our Mission</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+            To position SWARAJYA BUILDCON as an Integrated in Architectural Design and Civil Engineering Consultancy Services in the Maharashtra with the highest quality of construction, ethics, business standards, and value creation for shareholders, investors and customers and start 500+ franchise upto 2020.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">Our Core Values</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul>
+            <li>
+              <b>Client Satisfaction: </b>We seek to provide solutions and value added services which will satisfy client requirements.
+            </li>
+            <li>
+              <b>Quality:</b> We give our best all the time and strive to provide highest quality services to our Clients.
+            </li>
+            <li>
+              <b>Integrity:</b> We believe in doing right things all the time with honesty and strong moral principles.
+            </li>
+            <li>
+              <b>Trust:</b> We believe in being reliable and true to our commitments.
+            </li>
+            <li>
+              <b>Teamwork:</b> We will collaborate with external expert professionals across the borders. We strive to create togetherness with our employees and other stakeholders.
+            </li>
+            <li>
+              <b>Innovation:</b> We strive to provide innovative solutions that lead to value engineering.
+            </li>
+            <li>
+              <b>Cost Effectiveness:</b> We leverage expertise to deliver optimum solutions by being efficient and innovative.
+            </li>
+          </ul>
         </div>
       </div>
     </div>
