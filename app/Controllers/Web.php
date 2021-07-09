@@ -22,25 +22,9 @@ class Web extends BaseController
 		return view('about');
 	}
 
-	public function property()
-	{
-		$db = db_connect();
-    $model = new PropertyModel($db);
-		$data = [
-	
-			'users' => $model->select('*')->join('users','property.user_id = users.user_id')->paginate(6),
-			'pager' => $model->pager,
-	
-		];
-		return view('property_grid',$data);
-	}
 	public function blog()
 	{
 		return view('blog');
-	}
-	public function property_single()
-	{
-		return view('property_single');
 	}
 	public function agents_grid()
 	{
@@ -54,18 +38,42 @@ class Web extends BaseController
 	{
 		return view('contact');
 	}
+	public function property()
+	{
+		$db = db_connect();
+		$model = new PropertyModel($db);
+		$data = [
+
+			'users' => $model->select('*')->join('users', 'property.user_id = users.user_id')->paginate(6),
+			'pager' => $model->pager,
+
+		];
+		return view('property_grid', $data);
+	}
+
+	public function property_single($id)
+	{
+
+		$model = new PropertyModel();
+		$data['result'] = $model->getPropertySingle($id);
+
+		return view('property_single', $data);
+	}
 
 	public function profile()
 	{
+		$data = [];
 		$ses = session();
-		// \Config\Services::session();
+		$db = db_connect();
+		$model = new PropertyModel($db);
+		$id = $ses->get('id');
 
 		$data['profile_data'] = $ses;
+		$data['result'] = $model->getProperty($id);
 
-
-		// \Config\Services::session();
 		return view('profile', $data);
 	}
+
 	public function post_property()
 	{
 		if ($this->request->getMethod() == 'post') {
@@ -104,20 +112,19 @@ class Web extends BaseController
 				$property_status = $this->request->getPost('property_status');
 				$price = $this->request->getPost('price');
 				$features = $this->request->getPost('features');
-				$image= $this->request->getFile('image');
+				$image = $this->request->getFile('image');
 
 				if ($image->isValid() && !$image->hasMoved()) {
 					$originalName = $image->getClientName();
-					$image->move( 'public/uploads/', $originalName);
-				
+					$image->move('public/uploads/', $originalName);
 				}
 				$areasize = $this->request->getPost('areasize');
 				$bed = $this->request->getPost('bed');
 				$bath = $this->request->getPost('bath');
 				$garage = $this->request->getPost('garage');
 				$user_posted_id = session()->get('id');
-				
-				
+
+
 				$values =  [
 					'property_title' => $title,
 					'property_description' => $description,
@@ -144,7 +151,6 @@ class Web extends BaseController
 				if (!$query) {
 					return redirect()->back()->with('fail', 'Something Went Wrong');
 				} else {
-
 					return redirect()->to('/PostProperty')->with('success', 'Property Posted Successfully');
 				}
 			}
@@ -270,22 +276,4 @@ class Web extends BaseController
 		session()->destroy();
 		return redirect()->to('/');
 	}
-
-
-
-
-	// public function show_property($id)
-	// {
-
-	// 	$model = new PropertyModel();
-
-	// 	$data = [
-	// 		'get_property' =>  $model->get_property($id)
-	// 	];
-
-	// 	echo view('single', $data);
-	// }
-
-
-
 }

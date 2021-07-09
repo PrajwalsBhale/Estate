@@ -64,7 +64,7 @@
                     <div class="price-box d-flex">
                       <span class="price-a"><?= $property['property_status'] ?> | &#x20B9 <?= number_format($property['property_price']) ?></span>
                     </div>
-                    <a href="property-single.html" class="link-a">Click here to view
+                    <a href="<?= base_url('PropertySingle/'.$property['property_id']);?>" class="link-a">Click here to view
                       <span class="bi bi-chevron-right"></span>
                     </a>
                   </div>

@@ -42,13 +42,9 @@
                     <label class="form-label" for="firstname"> First name </label>
                     <input type="text" name="firstname" id="firstname" class="form-control" disabled value="<?php
 
-                                                                                                            use App\Controllers\Web;
-                                                                                                            use Kint\Parser\ToStringPlugin;
-
                                                                                                             echo $profile_data->get('firstname');
 
                                                                                                             ?>" />
-                    <!-- <span class="text-danger"><# isset($validation) ? display_error($validation, 'firstname') : '' ?></span> -->
                 </div>
                 <div class="form-outline mb-4">
                     <label class="form-label" for="lastname">Username</label>
@@ -128,22 +124,7 @@
     <div class="container">
         <div class="row justify-content-center">
 
-            <?=
-
-            $id = $profile_data->get('id');
-
-            function getProperty($id)
-            {
-                $db = \Config\Database::connect();
-
-                $sql = 'SELECT * FROM property WHERE user_id =' . $id;
-                $qry = $db->query($sql);
-                $res = $qry->getResultArray();
-
-                return $res;
-            }
-
-            $result = getProperty($id);
+            <?php
 
             if (count($result) > 0) {
 

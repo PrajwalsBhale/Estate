@@ -48,7 +48,7 @@ $routes->get('/logout', 'Web::logout', ['filter' => 'AuthCheck']);
 $routes->get('/profile', 'Web::profile', ['filter' => 'AuthCheck']);
 $routes->get('/PostProperty', 'Web::post_property', ['filter' => 'AuthCheck']);
 
-// $routes->get('/ShowProperty/(:num)', 'Web::show_property/$1');
+$routes->get('/PropertySingle/(:num)', 'Web::property_single/$1',['filter' => 'AuthCheck']);
 
 
 

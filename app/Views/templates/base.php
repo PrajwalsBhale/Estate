@@ -166,7 +166,6 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item " href="<?= base_url('/property_single') ?>">Property Single</a>
               <!-- <a class="dropdown-item " href="blog-single.html">Blog Single</a> -->
               <a class="dropdown-item " href="<?= base_url('/agents_grid') ?>">Agents Grid</a>
               <a class="dropdown-item " href="<?= base_url('/agents_single') ?>">Agent Single</a>
@@ -204,10 +203,10 @@
           </li>
         </ul>
       </div>
-      <!-- 
+      
       <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
         <i class="bi bi-search"></i>
-      </button> -->
+      </button>
 
     </div>
   </nav><!-- End Header/Navbar -->
